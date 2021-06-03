@@ -240,13 +240,13 @@ static void render_layer(void) {
 
     switch (get_highest_layer(layer_state)) {
         case _MAIN:
-            oled_write_P(PSTR("Default\n"), false);
+            oled_write_P(PSTR("Base\n"), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("FN\n"), false);
+            oled_write_P(PSTR("Lower\n"), false);
             break;
         case _LOWER:
-            oled_write_P(PSTR("ADJ\n"), false);
+            oled_write_P(PSTR("Raise\n"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undefined"), false);
@@ -254,7 +254,7 @@ static void render_layer(void) {
 
     // host keyboard led status
     led_t led_state = host_keyboard_led_state();
-    oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
+    oled_write_P(led_state.num_lock ? PSTR("    ") : PSTR("    "), false);
     oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
     oled_write_P(led_state.scroll_lock ? PSTR("SCR               \n") : PSTR("              \n"), false);
    
